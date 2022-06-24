@@ -1,14 +1,14 @@
-package com.nisum.employeemanagementsystem.Service;
+package com.nisum.employeemanagementsystem.Service.Employee;
 
 import com.nisum.employeemanagementsystem.DTO.EmployeeDTO;
-import com.nisum.employeemanagementsystem.Entity.Employee;
-import org.springframework.stereotype.Service;
 
-@Service
-public class EmployeeService {
+import java.util.List;
 
-    private Employee ConvertToEntity(EmployeeDTO employeeDTO)
-    {
-        Employeee
-    }
+public interface EmployeeService {
+
+    EmployeeDTO addEmployee(EmployeeDTO employeeDTO);
+    EmployeeDTO updateEmployee(long id, EmployeeDTO employeeDTO);
+    List<EmployeeDTO> getEmployees();
+    EmployeeDTO getEmployeeById(long id);
+    boolean deleteEmployeeById(long id);
 }

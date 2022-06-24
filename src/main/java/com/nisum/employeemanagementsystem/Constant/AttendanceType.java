@@ -1,2 +1,6 @@
-package com.nisum.employeemanagementsystem.Constant;public enum AttendanceType {
+package com.nisum.employeemanagementsystem.Constant;
+
+public enum AttendanceType {
+    CheckIn,
+    CheckOut
 }
