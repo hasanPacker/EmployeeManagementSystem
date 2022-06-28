@@ -26,6 +26,9 @@ public class Employee {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
+    private String username;
+    private String password;
+
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private List<EmployeeAttendance> employeeAttendance;
@@ -76,5 +79,21 @@ public class Employee {
 
     public void setEmployeeAttendance(List<EmployeeAttendance> employeeAttendance) {
         this.employeeAttendance = employeeAttendance;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
