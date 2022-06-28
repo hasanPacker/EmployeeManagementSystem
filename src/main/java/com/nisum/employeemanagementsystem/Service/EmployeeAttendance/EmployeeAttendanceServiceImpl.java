@@ -1,5 +1,6 @@
 package com.nisum.employeemanagementsystem.Service.EmployeeAttendance;
 
+import com.nisum.employeemanagementsystem.Custom.EmployeeException.EmployeeException;
 import com.nisum.employeemanagementsystem.DTO.EmployeeAttendanceDTO;
 import com.nisum.employeemanagementsystem.DTO.EmployeeDTO;
 import com.nisum.employeemanagementsystem.Entity.Employee;
@@ -34,7 +35,7 @@ public class EmployeeAttendanceServiceImpl implements EmployeeAttendanceService{
             employeeAttendance = employeeAttendanceRepository.save(employeeAttendance);
             return ConvertToDTO(employeeAttendance);
         }
-        return null;
+        throw new EmployeeException("No employee found");
     }
 
     @Override
@@ -49,7 +50,7 @@ public class EmployeeAttendanceServiceImpl implements EmployeeAttendanceService{
                     .map(this::ConvertToDTO)
                     .collect(Collectors.toList());
         }
-        return null;
+        throw new EmployeeException("No employee found");
     }
 
     private EmployeeAttendance ConvertToEntity(EmployeeAttendanceDTO employeeAttendanceDTO){

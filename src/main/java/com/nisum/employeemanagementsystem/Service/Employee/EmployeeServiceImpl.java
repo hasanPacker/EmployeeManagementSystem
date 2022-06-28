@@ -1,5 +1,6 @@
 package com.nisum.employeemanagementsystem.Service.Employee;
 
+import com.nisum.employeemanagementsystem.Custom.EmployeeException.EmployeeException;
 import com.nisum.employeemanagementsystem.DTO.EmployeeDTO;
 import com.nisum.employeemanagementsystem.Entity.Employee;
 import com.nisum.employeemanagementsystem.Repository.EmployeeRepository;
@@ -41,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService{
             employeeRepository.save(savedEmployee);
             return ConvertToDTO(savedEmployee);
         }
-        return null;
+        throw new EmployeeException("No employee found");
     }
 
     @Override
@@ -58,7 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
             return ConvertToDTO(employee.get());
         }
-            return null;
+        throw new EmployeeException("No employee found");
     }
 
     @Override
@@ -68,7 +69,7 @@ public class EmployeeServiceImpl implements EmployeeService{
             employeeRepository.delete(employee.get());
             return true;
         }
-            return false;
+        throw new EmployeeException("No employee found");
     }
 
     private Employee ConvertToEntity(EmployeeDTO employeeDTO){
